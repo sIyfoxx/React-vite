@@ -1,7 +1,8 @@
 import { memo, useCallback, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import './Login.css';
-import { useAuth } from './AuthContext';
+import { useAuth } from '../../context';
+
 import PropTypes from 'prop-types';
 
 const LoginForm = memo(function LoginForm({ onLogin }) {

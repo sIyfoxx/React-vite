@@ -1,12 +1,12 @@
 import { memo } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router';
-import { TimerProvider, TimerPage } from '../modules/timer';
-import { AuthProvider, LoginForm } from '../modules/auth';
-import { PostsProvider, HomePage, PostPage } from '../modules/posts';
+import { AuthProvider, TimerProvider, PostsProvider } from '../context';
+import { TimerPage } from '../modules/timer';
+import { LoginForm } from '../modules/auth';
+import { HomePage, PostPage } from '../modules/posts';
 import { DashboardPage } from '../modules/dashboard';
 import { Layout, NotFound } from '../modules/layout';
 import '../styles/theme.css';
-
 
 const App = memo(function App() {
   return (

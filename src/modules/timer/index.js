@@ -1,2 +1,2 @@
-export { TimerProvider, useTimer } from './TimerContext.jsx';
+export { TimerProvider, useTimer } from '../../context/TimerContext.jsx';
 export { default as TimerPage } from './TimerPage.jsx';

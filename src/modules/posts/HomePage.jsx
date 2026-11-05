@@ -1,6 +1,7 @@
 import { memo, useCallback, useState } from 'react';
 import './Home.css';
-import { usePosts } from './PostsContext';
+import { usePosts } from '../../context';
+
 import PostsList from './PostsList.jsx';
 
 const HomePage = memo(function HomePage() {

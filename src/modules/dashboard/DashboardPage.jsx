@@ -1,8 +1,8 @@
 import { memo, useMemo } from 'react';
 import { Link, Navigate } from 'react-router';
 import './Dashboard.css';
-import { useAuth } from '../auth';
-import { useTimer } from '../timer';
+import { useAuth, useTimer } from '../../context';
+
 import StatCard from './StatCard.jsx';
 import ActivityRow from './ActivityRow.jsx';
 

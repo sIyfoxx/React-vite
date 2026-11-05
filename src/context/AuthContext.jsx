@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useMemo, useState } from "react";
-import dt from "./data.jsx";
-import { hasXssPayload, sanitizeText } from "../../shared/sanitize.js";
+import dt from "../modules/auth/data.jsx";
+import { hasXssPayload, sanitizeText } from "../shared/sanitize.js";
 
 const AuthContext = createContext(null);
 

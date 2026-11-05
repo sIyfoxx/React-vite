@@ -1,7 +1,8 @@
 import { memo, useCallback, useMemo, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router';
 import './Post.css';
-import { usePosts } from './PostsContext';
+import { usePosts } from '../../context';
+
 import { calcPostRating, formatRating } from './rating.js';
 import CommentItem from './CommentItem.jsx';
 

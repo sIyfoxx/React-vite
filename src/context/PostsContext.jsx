@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useMemo, useState } from "react";
-import initialPosts from "./data.jsx";
-import { hasXssPayload, sanitizeName, sanitizeText } from "../../shared/sanitize.js";
+import initialPosts from "../modules/posts/data.jsx";
+import { hasXssPayload, sanitizeName, sanitizeText } from "../shared/sanitize.js";
 
 const PostsContext = createContext(null);
 

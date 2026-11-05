@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react';
 import './Timer.css';
-import { useTimer } from './TimerContext';
+import { useTimer } from '../../context';
+
 
 const TimerPage = memo(function TimerPage() {
   const { second, isRunning, start, stop, reset, setDuration } = useTimer();
