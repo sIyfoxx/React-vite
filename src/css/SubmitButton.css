@@ -1,0 +1,41 @@
+.submit-form input[type="submit"] {
+  width: auto;                 /* было 100% — теперь по размеру текста */
+  box-sizing: border-box;
+  padding: 8px 18px;           /* было 14px 10px — компактнее */
+  border: none;
+  border-radius: 10px;         /* было 14px */
+  font-family: inherit;
+  font-size: 12px;             /* было 14px */
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, #7c5cff, #22d3ee);
+  box-shadow: 0 6px 16px -6px rgba(124,92,255,.7);  /* тень мягче и ниже */
+  transition: transform .15s cubic-bezier(.2,.8,.2,1), box-shadow .2s, filter .2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.submit-form input[type="submit"]:hover {
+  transform: translateY(-1px);   /* было -2px */
+  filter: brightness(1.08);
+}
+
+.submit-form input[type="submit"]:active {
+  transform: translateY(0) scale(.97);
+}
+
+.submit-form input[type="submit"]:focus-visible {
+  outline: none;
+  box-shadow:
+    0 6px 16px -6px rgba(124,92,255,.7),
+    0 0 0 3px rgba(124,92,255,.2);   /* ринг тоньше */
+}
+
+.submit-form input[type="submit"]:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+  transform: none;
+  filter: none;
+}

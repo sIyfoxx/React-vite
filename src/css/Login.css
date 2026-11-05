@@ -1,0 +1,185 @@
+/* ===== обёртка: фон и высоту даёт Layout ===== */
+.Login {
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+/* ===== стеклянная карточка ===== */
+.Login__card {
+  position: relative;
+  width: min(92vw, 400px);
+  padding: 36px 32px 28px;
+  border-radius: 26px;
+  background: linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.55),
+    inset 0 1px 0 rgba(255,255,255,.15);
+  animation: LoginIn .7s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes LoginIn {
+  from { opacity: 0; transform: translateY(24px) scale(.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* неоновый ореол */
+.Login__card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg,
+    transparent 0 70%, #7c5cff 78%, #22d3ee 86%, transparent 94%);
+  animation: LoginSpin 8s linear infinite;
+  filter: blur(20px);
+  opacity: .28;
+  z-index: -1;
+}
+@keyframes LoginSpin { to { transform: rotate(360deg); } }
+
+/* ===== заголовок ===== */
+.Login__title {
+  margin: 0 0 6px;
+  font-size: clamp(28px, 6vw, 34px);
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: .01em;
+  background: linear-gradient(180deg, #ffffff 0%, #b9c0ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 32px rgba(124,92,255,.35);
+}
+
+.Login__subtitle {
+  margin: 0 0 24px;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: .02em;
+  color: rgba(232,236,255,.5);
+}
+
+/* ===== форма ===== */
+.Login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.Login__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.Login__label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(232,236,255,.45);
+}
+
+.Login__input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  color: #e8ecff;
+  font-family: inherit;
+  font-size: 15px;
+  letter-spacing: .02em;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+
+.Login__input::placeholder { color: rgba(232,236,255,.28); }
+
+.Login__input:focus {
+  border-color: rgba(124,92,255,.8);
+  background: rgba(124,92,255,.08);
+  box-shadow: 0 0 0 4px rgba(124,92,255,.18);
+}
+
+/* ===== ошибка ===== */
+.Login__error {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 12px;
+  letter-spacing: .02em;
+  color: #ff8fa3;
+  background: rgba(255,77,109,.1);
+  border: 1px solid rgba(255,77,109,.35);
+  animation: LoginShake .3s ease;
+}
+
+@keyframes LoginShake {
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* ===== submit — как у таймера ===== */
+.Login__submit {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 10px;
+  margin-top: 6px;
+  border: none;
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, #7c5cff, #22d3ee);
+  box-shadow: 0 10px 26px -8px rgba(124,92,255,.8);
+  transition: transform .15s cubic-bezier(.2,.8,.2,1), box-shadow .2s, filter .2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.Login__submit:hover  { transform: translateY(-2px); filter: brightness(1.08); }
+.Login__submit:active { transform: translateY(0) scale(.97); }
+
+.Login__submit:focus-visible {
+  outline: none;
+  box-shadow:
+    0 10px 26px -8px rgba(124,92,255,.8),
+    0 0 0 4px rgba(124,92,255,.18);
+}
+
+/* ===== подсказка снизу ===== */
+.Login__hint {
+  margin: 18px 0 0;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: .02em;
+  color: rgba(232,236,255,.45);
+}
+
+.Login__link {
+  color: #b9c0ff;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s, color .2s;
+}
+
+.Login__link:hover {
+  color: #fff;
+  border-color: rgba(124,92,255,.6);
+}
+
+/* ===== доступность ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

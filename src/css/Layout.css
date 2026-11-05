@@ -1,0 +1,119 @@
+/* ===== каркас на всю высоту ===== */
+.Layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(900px 500px at 15% 0%, #1b1035 0%, transparent 60%),
+    radial-gradient(800px 600px at 100% 100%, #04263a 0%, transparent 55%),
+    #07070c;
+  color: #e8ecff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ===== header ===== */
+.Layout__header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 24px;
+  background: rgba(7, 7, 12, .6);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+.Layout__logo {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background: linear-gradient(180deg, #fff, #b9c0ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.Layout__nav {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.Layout__link {
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  color: rgba(232,236,255,.7);
+  border: 1px solid transparent;
+  transition: color .2s, border-color .2s, background .2s;
+  white-space: nowrap;
+}
+
+.Layout__link:hover {
+  color: #fff;
+  background: rgba(124,92,255,.12);
+  border-color: rgba(124,92,255,.35);
+}
+
+.Layout__link.is-active {
+  color: #fff;
+  background: rgba(124,92,255,.18);
+  border-color: rgba(124,92,255,.5);
+}
+
+/* ===== main — сюда рендерится страница ===== */
+.Layout__main {
+  flex: 1;                 /* прижимает footer к низу */
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+/* ===== footer ===== */
+.Layout__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 24px;
+  font-size: 12px;
+  letter-spacing: .06em;
+  color: rgba(232,236,255,.4);
+  border-top: 1px solid rgba(255,255,255,.08);
+  background: rgba(7, 7, 12, .4);
+  backdrop-filter: blur(10px);
+}
+
+.Layout__footer-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(232,236,255,.3);
+}
+
+/* ===== мобильный вид ===== */
+@media (max-width: 520px) {
+  .Layout__header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 12px 16px;
+  }
+  .Layout__nav {
+    justify-content: center;
+  }
+  .Layout__link {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}

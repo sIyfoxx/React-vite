@@ -1,0 +1,168 @@
+/* ===== обёртка: фон и высоту даёт Layout ===== */
+.NotFound {
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+/* ===== стеклянная карточка ===== */
+.NotFound__card {
+  position: relative;
+  width: min(92vw, 440px);
+  padding: 40px 32px 32px;
+  border-radius: 28px;
+  background: linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.55),
+    inset 0 1px 0 rgba(255,255,255,.15);
+  text-align: center;
+  animation: NotFoundIn .7s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes NotFoundIn {
+  from { opacity: 0; transform: translateY(24px) scale(.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* неоновый ореол */
+.NotFound__card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg,
+    transparent 0 70%, #7c5cff 78%, #22d3ee 86%, transparent 94%);
+  animation: NotFoundSpin 8s linear infinite;
+  filter: blur(20px);
+  opacity: .28;
+  z-index: -1;
+}
+@keyframes NotFoundSpin { to { transform: rotate(360deg); } }
+
+/* ===== код 404 ===== */
+.NotFound__code {
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(72px, 22vw, 108px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: .02em;
+  background: linear-gradient(180deg, #ffffff 0%, #7c5cff 60%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 50px rgba(124,92,255,.4);
+  animation: NotFoundPulse 3s ease-in-out infinite;
+}
+
+@keyframes NotFoundPulse {
+  50% { text-shadow: 0 0 70px rgba(34,211,238,.5); }
+}
+
+/* ===== заголовок и текст ===== */
+.NotFound__title {
+  margin: 12px 0 10px;
+  font-size: clamp(20px, 4vw, 24px);
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: #e8ecff;
+}
+
+.NotFound__subtitle {
+  margin: 0 0 26px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(232,236,255,.55);
+  letter-spacing: .01em;
+}
+
+/* ===== кнопки ===== */
+.NotFound__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.NotFound__btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: transform .15s cubic-bezier(.2,.8,.2,1), box-shadow .2s, filter .2s, border-color .2s, color .2s;
+  will-change: transform;
+}
+
+.NotFound__btn:hover  { transform: translateY(-2px); filter: brightness(1.08); }
+.NotFound__btn:active { transform: translateY(0) scale(.97); }
+
+.NotFound__btn--primary {
+  color: #fff;
+  border: none;
+  background: linear-gradient(135deg, #7c5cff, #22d3ee);
+  box-shadow: 0 10px 26px -8px rgba(124,92,255,.8);
+}
+
+.NotFound__btn--ghost {
+  color: rgba(232,236,255,.8);
+  border: 1px solid rgba(255,255,255,.16);
+  background: transparent;
+}
+
+.NotFound__btn--ghost:hover {
+  border-color: rgba(255,77,109,.6);
+  color: #ff8fa3;
+}
+
+/* ===== подсказка с путём ===== */
+.NotFound__hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: .06em;
+  color: rgba(232,236,255,.4);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.NotFound__hint code {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  color: rgba(232,236,255,.7);
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 11px;
+}
+
+.NotFound__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff4d6d;
+  box-shadow: 0 0 12px rgba(255,77,109,.9);
+  animation: NotFoundBlink 1.6s ease-in-out infinite;
+}
+
+@keyframes NotFoundBlink {
+  50% { opacity: .4; transform: scale(.85); }
+}
+
+/* ===== доступность ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
