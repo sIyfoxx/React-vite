@@ -1,0 +1,236 @@
+.PostPage {
+  animation: rise-in 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.PostPage__card {
+  position: relative;
+  padding: 22px;
+  border-radius: var(--radius-card);
+  background: var(--cream);
+  border: var(--border);
+  box-shadow: 0 10px 0 rgba(33, 70, 80, 0.18);
+}
+
+.PostPage__back {
+  margin-bottom: 18px;
+  padding: 8px 12px;
+  border: 2px solid var(--teal);
+  border-radius: 999px;
+  background: #efe9c8;
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.PostPage__back:hover {
+  background: var(--teal);
+  color: var(--cream);
+}
+
+.PostPage__head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.PostPage__avatar {
+  width: 64px;
+  height: 74px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--arch);
+  border: 3px solid var(--cream);
+  outline: 3px solid var(--teal);
+  background: var(--teal);
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-size: 26px;
+}
+
+.PostPage__avatar--sm {
+  width: 40px;
+  height: 46px;
+  font-size: 16px;
+  background: var(--rust);
+  outline-color: var(--rust);
+}
+
+.PostPage__author {
+  font-family: var(--font-display);
+  font-size: 24px;
+  color: var(--rust);
+}
+
+.PostPage__time {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.PostPage__text {
+  margin: 0 0 16px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--teal);
+  overflow-wrap: anywhere;
+}
+
+.PostPage__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.PostPage__likes {
+  padding: 6px 12px;
+  border: 2px solid var(--rust);
+  border-radius: 999px;
+  background: #f3d7c8;
+  color: var(--rust);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.PostPage__likes--sm {
+  font-size: 12px;
+  padding: 4px 10px;
+}
+
+.PostPage__rating {
+  padding: 6px 12px;
+  border: 2px solid var(--teal);
+  border-radius: 999px;
+  background: #dce8ea;
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.PostPage__id,
+.PostPage__score {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.PostPage__hint {
+  margin: 14px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+
+.PostPage__comments {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 3px solid var(--teal);
+}
+
+.PostPage__comments-title,
+.PostPage__form-title,
+.PostPage__title {
+  margin: 0 0 14px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--rust);
+}
+
+.PostPage__subtitle,
+.PostPage__empty {
+  margin: 0 0 14px;
+  color: var(--text-soft);
+  font-size: 14px;
+}
+
+.PostPage__replies {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.PostPage__reply {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 12px;
+}
+
+.PostPage__reply-body .PostPage__text {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.PostPage__form {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 3px dashed var(--teal);
+  background: #efe9c8;
+}
+
+.PostPage__input,
+.PostPage__textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2.5px solid var(--teal);
+  background: var(--cream);
+  outline: none;
+}
+
+.PostPage__input:focus,
+.PostPage__textarea:focus {
+  border-color: var(--rust);
+}
+
+.PostPage__score-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-soft);
+}
+
+.PostPage__input--score {
+  width: 72px;
+  text-align: center;
+}
+
+.PostPage__btn {
+  display: inline-flex;
+  justify-content: center;
+  width: fit-content;
+  padding: 12px 18px;
+  border: none;
+  border-radius: var(--radius-btn);
+  background: var(--rust);
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.PostPage__btn:hover {
+  background: var(--rust-deep);
+}
+
+.PostPage__error {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 2px solid var(--danger);
+  background: var(--danger-bg);
+  color: var(--danger);
+  font-size: 13px;
+}
